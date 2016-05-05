@@ -1,10 +1,11 @@
-FROM alpine:3.3
+FROM alpine:edge
 MAINTAINER George Dernikos <geoder101@gmail.com>
 
 WORKDIR /root
 
 RUN apk update && \
-    apk add openssh-client && \
+    apk add tini \
+            openssh-client && \
     rm /var/cache/apk/*
 
 EXPOSE 1080
@@ -12,4 +13,5 @@ EXPOSE 1080
 COPY bin/prisonbreak-tunnel.sh /usr/local/bin/
 COPY bin/prisonbreak-genkeys.sh /usr/local/bin/
 
+ENTRYPOINT ["tini", "--"]
 CMD ["prisonbreak-tunnel.sh"]
