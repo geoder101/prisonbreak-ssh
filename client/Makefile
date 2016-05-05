@@ -19,8 +19,8 @@ run:
 
 keys:
 	docker run -it --rm \
-	-v $(SSH_KEYS_DIR):/root/.ssh/ \
-	geoder101/$(CNAME) prisonbreak-genkeys.sh
+        -v $(SSH_KEYS_DIR):/root/.ssh/ \
+        geoder101/$(CNAME) prisonbreak-genkeys
 
 stop:
 	docker stop $(CNAME) || docker kill $(CNAME) || true

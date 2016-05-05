@@ -10,8 +10,8 @@ RUN apk update && \
 
 EXPOSE 1080
 
-COPY bin/prisonbreak-tunnel.sh /usr/local/bin/
-COPY bin/prisonbreak-genkeys.sh /usr/local/bin/
+COPY bin/prisonbreak-tunnel /usr/local/bin/
+COPY bin/prisonbreak-genkeys /usr/local/bin/
 
 ENTRYPOINT ["tini", "--"]
-CMD ["prisonbreak-tunnel.sh"]
+CMD ["prisonbreak-tunnel"]
